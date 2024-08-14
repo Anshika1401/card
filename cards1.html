@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #feaf81;
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        .card-container, .card-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.2s;
+            background-color: #fafafa;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card-details {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .card-details h1 {
+            margin-bottom: 20px;
+        }
+        .card-details p {
+            margin-bottom: 30px;
+        }
+        .back-button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Added heading here -->
+        <h1>Card Gallery</h1>
+        
+        <div class="card-container" id="cardContainer">
+            <div class="card" onclick="showDetails('card1')">Card 1</div>
+            <div class="card" onclick="showDetails('card2')">Card 2</div>
+            <div class="card" onclick="showDetails('card3')">Card 3</div>
+            <div class="card" onclick="showDetails('card4')">Card 4</div>
+            <div class="card" onclick="showDetails('card5')">Card 5</div>
+            <div class="card" onclick="showDetails('card6')">Card 6</div>
+            <div class="card" onclick="showDetails('card7')">Card 7</div>
+            <div class="card" onclick="showDetails('card8')">Card 8</div>
+            <div class="card" onclick="showDetails('card9')">Card 9</div>
+            <div class="card" onclick="showDetails('card10')">Card 10</div>
+            <div class="card" onclick="showDetails('card11')">Card 11</div>
+            <div class="card" onclick="showDetails('card12')">Card 12</div>
+        </div>
+
+        
+        <div class="card-details" id="cardDetails">
+            <h1 id="cardTitle">Card Title</h1>
+            <p id="cardDescription">This is the detailed information about the card.</p>
+            <button class="back-button" onclick="hideDetails()">Back to Cards</button>
+        </div>
+    </div>
+
+    <script>
+        const cardData = {
+            card1: { title: 'Card 1', description: 'Ace of Spades: Often considered the most powerful card in many games, it has a special status in many cultures and is associated with good luck.' },
+            card2: { title: 'Card 2', description: 'King of Hearts: Known as the "suicide king" because it looks like he is stabbing himself in the head with a sword.' },
+            card3: { title: 'Card 3', description: 'Queen of Diamonds: Sometimes referred to as the "greedy queen," she is one of the four queens in a deck.' },
+            card4: { title: 'Card 4', description: 'Jack of Clubs: The "knave of clubs" is often associated with loyalty and work ethic.' },
+            card5: { title: 'Card 5', description: '10 of Spades: A high-ranking card in many trick-taking games like Spades.' },
+            card6: { title: 'Card 6', description: '9 of Hearts: Known as the "wish card" in fortune-telling.' },
+            card7: { title: 'Card 7', description: '8 of Diamonds: A mid-range card that can be valuable in games like Poker.' },
+            card8: { title: 'Card 8', description: '7 of Spades: Often seen as a lucky card in some games.' },
+            card9: { title: 'Card 9', description: '6 of Clubs: A lower-middle card, important in games like Cribbage.' },
+            card10: { title: 'Card 10', description: '5 of Hearts: Can be a turning point card in games where you need a sequence.' },
+            card11: { title: 'Card 11', description: '4 of Diamonds: Represents stability in numerology and can be a significant card in Rummy.' },
+            card12: { title: 'Card 12', description: '3 of Clubs: A low card but sometimes crucial in certain strategic plays.' }
+        };
+
+        function showDetails(cardId) {
+            const card = cardData[cardId];
+            document.getElementById('cardTitle').innerText = card.title;
+            document.getElementById('cardDescription').innerText = card.description;
+            document.getElementById('cardContainer').style.display = 'none';
+            document.getElementById('cardDetails').style.display = 'flex';
+        }
+
+        function hideDetails() {
+            document.getElementById('cardContainer').style.display = 'flex';
+            document.getElementById('cardDetails').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
